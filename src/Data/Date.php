@@ -10,7 +10,7 @@ $createDate = function($y, $m, $d) use (&$createDate) {
 $canonicalDateImpl = function($ctor, $y = null, $m = null, $d = null) use (&$canonicalDateImpl) {
     if (func_num_args() < 4) {
         $__args = func_get_args();
-        return function(...$more) use ($__args, &$createDate) {
+        return function(...$more) use ($__args, &$canonicalDateImpl) {
 
             return $canonicalDateImpl(...array_merge($__args, $more));
         };
@@ -26,7 +26,7 @@ $canonicalDateImpl = function($ctor, $y = null, $m = null, $d = null) use (&$can
 $calcWeekday = function($y, $m = null, $d = null) use (&$calcWeekday) {
     if (func_num_args() < 3) {
         $__args = func_get_args();
-        return function(...$more) use ($__args, &$canonicalDateImpl) {
+        return function(...$more) use ($__args, &$calcWeekday) {
 
             return $calcWeekday(...array_merge($__args, $more));
         };
@@ -39,7 +39,7 @@ $calcWeekday = function($y, $m = null, $d = null) use (&$calcWeekday) {
 $calcDiff = function($y1, $m1 = null, $d1 = null, $y2 = null, $m2 = null, $d2 = null) use (&$calcDiff) {
     if (func_num_args() < 6) {
         $__args = func_get_args();
-        return function(...$more) use ($__args, &$calcWeekday) {
+        return function(...$more) use ($__args, &$calcDiff) {
 
             return $calcDiff(...array_merge($__args, $more));
         };
