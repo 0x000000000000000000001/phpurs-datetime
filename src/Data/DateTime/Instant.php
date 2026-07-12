@@ -1,11 +1,11 @@
 <?php
 
 $fromDateTimeImpl = function($y, $mo = null, $d = null, $h = null, $mi = null, $s = null, $ms = null) use (&$fromDateTimeImpl) {
-    if (func_num_args() < 7) {
-        $__args = func_get_args();
+    if (\func_num_args() < 7) {
+        $__args = \func_get_args();
         return function(...$more) use ($__args, &$fromDateTimeImpl) {
 
-            return $fromDateTimeImpl(...array_merge($__args, $more));
+            return $fromDateTimeImpl(...\array_merge($__args, $more));
         };
     }
     $dt = new \DateTime('now', new \DateTimeZone('UTC'));
@@ -15,11 +15,11 @@ $fromDateTimeImpl = function($y, $mo = null, $d = null, $h = null, $mi = null, $
 };
 
 $toDateTimeImpl = function($ctor, $instant = null) use (&$toDateTimeImpl) {
-    if (func_num_args() < 2) {
-        $__args = func_get_args();
+    if (\func_num_args() < 2) {
+        $__args = \func_get_args();
         return function(...$more) use ($__args, &$toDateTimeImpl) {
 
-            return $toDateTimeImpl(...array_merge($__args, $more));
+            return $toDateTimeImpl(...\array_merge($__args, $more));
         };
     }
     $seconds = floor($instant / 1000);

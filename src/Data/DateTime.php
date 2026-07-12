@@ -8,11 +8,11 @@ $createUTC = function($y, $mo, $d, $h, $m, $s, $ms) use (&$createUTC) {
 };
 
 $calcDiff = function($rec1, $rec2 = null) use (&$calcDiff) {
-    if (func_num_args() < 2) {
-        $__args = func_get_args();
+    if (\func_num_args() < 2) {
+        $__args = \func_get_args();
         return function(...$more) use ($__args, &$calcDiff) {
 
-            return $calcDiff(...array_merge($__args, $more));
+            return $calcDiff(...\array_merge($__args, $more));
         };
     }
 
@@ -22,11 +22,11 @@ $calcDiff = function($rec1, $rec2 = null) use (&$calcDiff) {
 };
 
 $adjustImpl = function($just, $nothing = null, $offset = null, $rec = null) use (&$adjustImpl) {
-    if (func_num_args() < 4) {
-        $__args = func_get_args();
+    if (\func_num_args() < 4) {
+        $__args = \func_get_args();
         return function(...$more) use ($__args, &$adjustImpl) {
 
-            return $adjustImpl(...array_merge($__args, $more));
+            return $adjustImpl(...\array_merge($__args, $more));
         };
     }
 
