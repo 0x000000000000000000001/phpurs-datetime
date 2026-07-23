@@ -1,6 +1,6 @@
 <?php
 
-$createUTC = function($y, $mo, $d, $h, $m, $s, $ms) use (&$createUTC) {
+$createUTC = function($y, $mo, $d, $h, $m, $s, $ms) {
     $dt = new \DateTime('now', new \DateTimeZone('UTC'));
     $dt->setDate($y, $mo + 1, $d);
     $dt->setTime($h, $m, $s, $ms * 1000);
