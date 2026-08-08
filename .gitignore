@@ -7,3 +7,5 @@ package-lock.json
 /node_modules/
 /output/
 .DS_Store
+.spago
+output
