@@ -86,7 +86,8 @@ checkEmptiness {asList} = if null asList then pure IsEmpty else empty
 
 checkFractionalUse :: CheckEnv -> List Error
 checkFractionalUse {asList} = case _.rest (span (snd >>> not isFractional) asList) of
-  Cons (Tuple c _) rest | checkRest rest -> pure (InvalidFractionalUse c)
+  Cons (Tuple c _) rest ->
+    if checkRest rest then pure (InvalidFractionalUse c) else empty
   _ -> empty
   where
   isFractional a = Number.floor a /= a

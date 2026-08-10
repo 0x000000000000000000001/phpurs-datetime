@@ -7,14 +7,14 @@ $createUTC = function($y, $mo, $d, $h, $m, $s, $ms) {
     return (float)$dt->getTimestamp() * 1000 + (int)$dt->format('v');
 };
 
-$calcDiff = function($rec1, $rec2) use (&$calcDiff) {
+$calcDiff = function($rec1, $rec2) use (&$calcDiff, &$createUTC) {
 
     $msUTC1 = $createUTC($rec1->year, $rec1->month - 1, $rec1->day, $rec1->hour, $rec1->minute, $rec1->second, $rec1->millisecond);
     $msUTC2 = $createUTC($rec2->year, $rec2->month - 1, $rec2->day, $rec2->hour, $rec2->minute, $rec2->second, $rec2->millisecond);
     return $msUTC1 - $msUTC2;
 };
 
-$adjustImpl = function($just, $nothing, $offset, $rec) use (&$adjustImpl) {
+$adjustImpl = function($just, $nothing, $offset, $rec) use (&$adjustImpl, &$createUTC) {
 
     $msUTC = $createUTC($rec->year, $rec->month - 1, $rec->day, $rec->hour, $rec->minute, $rec->second, $rec->millisecond);
     $targetMs = $msUTC + $offset;

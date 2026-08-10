@@ -54,8 +54,7 @@ workspace:
       path: "../phpurs-catenable-lists"
     console:
       path: "../phpurs-console"
-    datetime:
-      path: "../phpurs-datetime"
+
     effect:
       path: "../phpurs-effect"
     enums:
